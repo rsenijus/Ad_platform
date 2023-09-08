@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% block head %}
+<link rel="stylesheet" href="static/css/register.css">
+<title>Информация</title>
+{% endblock %}
+
+{% block content %}
+<form action="/info" method="post">
+    <ul class="form" class="main">
+        {{message}}
+        <li>
+            <input type="text" id="login" name="login" placeholder="Ваш логин">
+        </li>
+        <li>
+            <button type="submit">Найти</button>
+        </li>
+    </ul>
+</form>
+{% if search %}
+    <h1>Логин:{{login.login}}</h1>
+    <p>Кол-во coins: {{login.coins}}</p>
+    <p>Рекламы:</p>
+    <table>
+    {% for pu in pub %}
+        <tr>
+        {% if pu.author == login.login %}
+            <a href="/publicity={{pu.id}}">{{pu.name}} Кол-во использований: {{pu.users}}</a>
+        {% endif %}
+        </tr>
+    {% endfor %}
+    </teble>
+{% endif %}
+{% endblock %}

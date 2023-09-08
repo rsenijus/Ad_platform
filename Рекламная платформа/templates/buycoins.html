@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% block head %}
+<link rel="stylesheet" href="static/css/register.css">
+<title>Купить coins</title>
+{% endblock %}
+
+{% block content %}
+<form action="/buycoins" method="post">
+    <ul class="form" class="main">
+        {{message}}
+        <li>
+            <input type="text" id="login" name="login" placeholder="Логин">
+        </li>
+        <li>
+            <input type="number" id="coins" name="coins" placeholder="Кол-во coins">
+        </li>
+        <li>
+            <button type="submit">Купить</button>
+        </li>
+    </ul>
+</form>
+{% endblock %}

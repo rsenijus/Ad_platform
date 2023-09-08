@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <meta charset="UTF-8"> 
+    <link rel="stylesheet" href= "/static/css/style.css">
+    {% block head %}
+        <title>Главная страница</title>
+    {% endblock %}
+  </head> 
+  <body> 
+    <header>
+        <ul>
+          <li><a href="/register">Зарегистрироваться</a></li>
+          <li><a href="/login">Логин</a></li>
+          <li><a href="/">Главная страница</a></li>
+          <li><a href="/page=1">Все рекламы</a></li>
+          <li><a href="/search=поискpage=1">Поиск</a></li>
+          <li><a href="/info">Информация о тебе</a></li>
+          <li><a href="/buycoins">Купить coins</a></li>
+        </ul>
+    </header>
+    {% block content %}
+    {% endblock %}
+  </body> 
+</html> 

@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% block head %}
+<title>Поиск</title>
+{% endblock %}
+
+{% block content %}
+<form action="" method="POST">
+    <input type="search" value="{{search}}" id="search" name="search" placeholder="Ввод">
+    <button type="submit">Поиск</button>
+</form>
+<table>
+    {% for pub in elems %}
+    <tr>
+        <td><a href="/publicity={{pub.id}}">{{pub.name}}</a></td>
+        <img src="../static/images/{{pub.id}}.{{pub.imagetype}}">
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+{% block head %}
+<link rel="stylesheet" href="static/css/register.css">
+<title>Cоздать рекламу</title>
+{% endblock %}
+
+{% block content %}
+<form action = "/upload" method = "POST"
+   enctype = "multipart/form-data">
+   <ul class="form" class="main">
+       <li>
+           Видео:<input type="file" name="video">
+       </li>
+       <li>
+           Картинка:<input type="file" name="image">
+       </li>
+       <li>
+           <input type="text" name="name" placeholder="Введите имя рекламы">
+       </li>
+       <li>
+           <textarea name="description" cols="40" rows="5" placeholder="Введите описание"></textarea>
+       </li>
+       <li>
+           <input type="text" name="login" placeholder="Введите логин">
+       </li>
+       <li>
+           <input type = "submit">
+       </li>
+   </ul>
+</form>
+{% endblock %}

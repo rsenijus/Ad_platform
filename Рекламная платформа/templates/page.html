@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+{% block head %}
+<title>Рекламы</title>
+{% endblock %}
+
+{% block content %}
+<style>
+table {
+    margin: 15px auto; /* Сверху и снизу таблицы отступы 15 пикселей, auto - центрирует таблицу */
+    font-size: 16px;
+    font-family: sans-serif; /* Подключаем красивый шрифт */
+    border: double 5px #2c3e50; /* Создаем двойную границу с толщиной 5 пикселей */
+}
+</style>
+<h2>Страница {{page}}</h2>
+{% if page > 1 %}
+    <a href = "/page={{page-1}}"}>Прошлая</a>
+{% endif %}
+{% if page < maxpage %}
+    <a href = "/page={{page+1}}">Следующая</a>
+{% endif %}
+<table>
+    {% for pub in content %}
+    <tr>
+        <td><a href="/publicity={{pub.id}}">{{pub.name}}</a></td>
+        <img src="../static/images/{{pub.id}}.{{pub.imagetype}}">
+    </tr>
+    {% endfor %}
+</table>
+{% if page > 1 %}
+    <a href = "/page={{page-1}}"}>Прошлая</a>
+{% endif %}
+{% if page < maxpage %}
+    <a href = "/page={{page+1}}">Следующая</a>
+{% endif %}
+{% endblock %}

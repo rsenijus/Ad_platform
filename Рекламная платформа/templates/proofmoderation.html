@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+{% block head %}
+<link rel="stylesheet" href="static/css/register.css">
+<title>Вход</title>
+{% endblock %}
+
+{% block content %}
+<form action="/proof_moderation" method="post">
+    <ul class="form" class="main">
+        {{message}}
+        <li>
+            <input type="text" name="id" placeholder="Введите id проекта">
+        </li>
+        <li>
+            <textarea name="proof" cols="40" rows="5" placeholder="Введите доказательство"></textarea>
+        </li>
+        <li>
+            <input type="text" name="login" placeholder="Введите ваш логин">
+        </li>
+        <li>
+            <button type="submit">Отправить</button>
+        </li>
+    </ul>
+</form>
+{% endblock %}

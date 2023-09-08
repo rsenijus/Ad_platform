@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% block head %}
+<title>Реклама `{{pub.name}}`</title>
+{% endblock %}
+
+{% block content %}
+<form action="/publicity={{pub.id}}" method="post">
+    <ul class="form" class="main">
+        {{message}}
+        <li>
+            <input type="number" name="number" placeholder="Введите кол-во доп использований">
+        </li>
+        <li>
+            <input type="text" name="login" placeholder="Введите ваш логин">
+        </li>
+        <li>
+            <input type="password" name="password" placeholder="Введите ваш пароль">
+        </li>
+        <li>
+            <button type="submit">Пополнить баланс</button>
+        </li>
+    </ul>
+</form>
+<h1>{{pub.name}}</h1>
+<img src="../static/images/{{pub.id}}.{{pub.imagetype}}">
+<p>Описание:</p>
+<p>{{pub.description}}</p>
+<p>Создатель: {{pub.author}}</p>
+<video src="../static/videos/{{pub.id}}.{{pub.videotype}}" controls>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% block head %}
+<link rel="stylesheet" href="static/css/register.css">
+<title>Вход</title>
+{% endblock %}
+
+{% block content %}
+<form action="/login" method="post">
+    <ul class="form" class="main">
+        {{message}}
+        <li>
+            <input type="text" id="login" name="login" placeholder="Логин">
+        </li>
+        <li>
+            <input type="password" id="password" name="password" placeholder="Пароль">
+        </li>
+        <li>
+            <button type="submit">Войти</button>
+        </li>
+    </ul>
+</form>
+{% endblock %}
