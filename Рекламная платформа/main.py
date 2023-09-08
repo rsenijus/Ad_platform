@@ -34,6 +34,7 @@ app.config['MAX_CONTENT_LENGTH'] = 1024**3
 app.config['UPLOAD_FOLDER'] = 'C:\\Users\\suhin\\OneDrive\\Рабочий стол\\Python\\Рекламная платформа\\static\\'
 
 @app.route('/upload', methods=['POST'])
+@login_required
 def upload_file():
     if 'video' in request.files and 'image' in request.files:
         video = request.files['video']
@@ -151,6 +152,7 @@ def moderation():
     return render_template("moderation.html")
 
 @app.route("/proof_moderation", methods=["GET", "POST"])
+@login_required
 def proof_moderation():
     if request.method == "GET":
         return render_template("proofmoderation.html")
