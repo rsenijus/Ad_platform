@@ -93,7 +93,7 @@ def publicity(id):
 
 @app.route("/page=<page>")
 def page(page):
-    content = db.publicity.get_all().reverse()
+    content = db.publicity.get_all()
     con = 5
     page=int(page)
     maxpage = ceil(len(content)/con) 
@@ -105,7 +105,7 @@ def page(page):
 
 @app.route("/search=<search>", methods=["GET","POST"])
 def search(search):
-    elem = db.publicity.get_all().reverse()
+    elem = db.publicity.get_all()
     if request.method == 'POST' and request.form['search'] != "":
         return redirect(url_for('search', search=request.form['search']))
     elems = []
