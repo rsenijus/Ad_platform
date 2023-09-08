@@ -23,7 +23,7 @@ table {
     {% for pub in content %}
     <tr>
         <td><a href="/publicity={{pub.id}}">{{pub.name}}</a></td>
-        <img src="../static/images/{{pub.id}}.{{pub.imagetype}}">
+        <td><img src="../static/images/{{pub.id}}.{{pub.imagetype}}"></td>
     </tr>
     {% endfor %}
 </table>
