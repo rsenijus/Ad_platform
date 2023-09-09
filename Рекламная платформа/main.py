@@ -88,7 +88,7 @@ def publicity(id):
             login = db.login.get("login", request.form["login"])
             if not login:
                 return render_template("publicity.html", pub=pub, message="Неправильный логин")
-            if login.password != request.form["password"]:
+            if not check_password(login.password,request.form["password"]):
                 return render_template("publicity.html", pub=pub, message="Неправильный пароль")
             if login.coins < request.form["number"]:
                 return render_template("publicity.html", pub=pub, message="Недостаточно coins")
