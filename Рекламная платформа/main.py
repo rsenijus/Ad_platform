@@ -33,6 +33,9 @@ def load_user(login):
 app.config['MAX_CONTENT_LENGTH'] = 1024**3
 app.config['UPLOAD_FOLDER'] = 'C:\\Users\\suhin\\OneDrive\\Рабочий стол\\Python\\Рекламная платформа\\static\\'
 
+def mykey(elem):
+    return elem.id
+
 @app.route('/upload', methods=['POST'])
 @login_required
 def upload_file():
@@ -41,13 +44,15 @@ def upload_file():
         image = request.files['image']
         if video and image and allowed_file(video.filename, {"mp4", "mov", "avi"}) and allowed_file(image.filename, {"png", "jpg", "jpeg"}):
             filename = db.publicity.get_all()
+            filename.sort(key=mykey)
             filename = str(int(filename[len(filename)-1].id)+1)
             videotype = video.filename.rsplit(".",1)[1].lower()
             imagetype = image.filename.rsplit(".",1)[1].lower()
             try:
                 video.save(os.path.join(app.config['UPLOAD_FOLDER']+'videos\\', filename + "." + videotype))
                 image.save(os.path.join(app.config['UPLOAD_FOLDER']+'images\\', filename + "." + imagetype))
-                data = {"name": request.form["name"],
+                data = {"id": filename,
+                        "name": request.form["name"],
                         "description": request.form["description"],
                         "author": request.form["login"],
                         "videotype": videotype,

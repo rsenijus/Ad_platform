@@ -29,7 +29,7 @@ async def moderated(ctx, id, moder):
         await ctx.send("Её не существует")
     if pub.moderated:
         await ctx.send("Она не на модерации")
-    if moder:
+    if int(moder):
         db.publicity.update("id", id, "moderated", 1)
     else:
         remove(f"static/images/{id}.{pub.imagetype}")

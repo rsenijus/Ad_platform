@@ -12,7 +12,7 @@
     {% for pub in elems %}
     <tr>
         <td><a href="/publicity={{pub.id}}">{{pub.name}}</a></td>
-        <td><img src="../static/images/{{pub.id}}.{{pub.imagetype}}"></td>
+        <img src="../static/images/{{pub.id}}.{{pub.imagetype}}">
     </tr>
     {% endfor %}
 </table>
